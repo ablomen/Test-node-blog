@@ -1,0 +1,21 @@
+{
+	"name":		"Test node blog",
+	"description":	"A test blog in nodejs",
+	"url":		"https://github.com/ablomen/Test-node-blog",
+	"keywords":	[
+		"test"
+	],
+	"author":	"Alexander Blomen <info@ablomen.nl>",
+	"contributors":	[],
+	"dependencies":	{
+		"backbone":		">=0.5.3",
+		"express":		">=2.4.6",
+		"jade":			">=0.15.4",
+		"sqlite3":		">=2.0.16",
+		"underscore":		">=1.1.7",
+		"underscore.string":	">=1.1.6"
+	},
+	"lib":		".",
+	"main":		"index.js",
+	"version":	"0.1"
+}
