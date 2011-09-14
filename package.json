@@ -1,5 +1,5 @@
 {
-	"name":		"Test node blog",
+	"name":		"Test_node_blog",
 	"description":	"A test blog in nodejs",
 	"url":		"https://github.com/ablomen/Test-node-blog",
 	"keywords":	[
@@ -17,5 +17,5 @@
 	},
 	"lib":		".",
 	"main":		"index.js",
-	"version":	"0.1"
+	"version":	"0.0.1"
 }

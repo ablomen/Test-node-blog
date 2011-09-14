@@ -25,7 +25,7 @@
 *.log
 *.sql
 *.sqlite
-*.db
+#*.db # Uncomment when table creation script is in
 
 # OS generated files #
 ######################
