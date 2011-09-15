@@ -26,9 +26,38 @@ _.extend(exports, {
 		return this;
 	},
 	"create":	function (success, error) {
-		if (_.isFunction(success)) {
-			success.apply(this);
-		}
+		var self	=	this,
+		    keys	=	[],
+		    values	=	[];
+		_.each(this.attributes, function (value, key) {
+			if (key !== "id") {
+				keys.push(key);
+				values.push(value);
+			}
+		});
+		
+		db.run(
+			"INSERT INTO " + this.table + " (" + keys.join(", ") + ') VALUES ("' + values.join('", "') + '")',
+			function (errors) {
+				if (errors) {
+					if (_.isFunction(error)) {
+						error.apply(self, [errors]);
+					} else {
+						throw errors;
+					}
+				}
+				
+				console.log("a", this);
+				
+				self.set({"id": this.lastID});
+				
+				self.hasChanged	=	false;
+				
+				if (_.isFunction(success)) {
+					success.apply(self);
+				}
+			}
+		);
 	},
 	"update":	function (success, error) {
 		if (_.isFunction(success)) {
@@ -76,6 +105,6 @@ _.extend(exports, {
 		return this;
 	},
 	"isNew":	function ( ) {
-		return this.id > 0 ? true : false;
+		return this.get("id") > 0 ? false : true;
 	}
 });
